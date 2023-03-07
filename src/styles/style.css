@@ -320,7 +320,7 @@ font-family: monospace;
       margin-top: -1%;
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 800px) {
   
       header{
         height: 90px;
@@ -378,7 +378,7 @@ font-family: monospace;
         .footer__tiltel{
          font-size:x-large;
          margin-bottom: 1%;
-         margin-left: 39%;
+         margin-left: 36%;
         }
       
         footer p {
@@ -391,12 +391,13 @@ font-family: monospace;
           text-align: left;
           margin-top: 5%;
           margin-left: 0%;
+          line-height: 15px;
         }
       
         .footer__contact h1{
           font-size:x-large;
           margin-bottom: 1%;
-          margin-left: 46%;
+          margin-left: 43%;
         
         }
       
@@ -445,4 +446,4 @@ font-family: monospace;
             color:white;
           }
       
-      }
+        }
