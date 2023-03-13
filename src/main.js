@@ -1,33 +1,33 @@
 import './styles/reset.css';
 import './styles/style.css';
- // core version + navigation, pagination modules:
+// core version + navigation, pagination modules:
 import Swiper, { Navigation, Pagination } from 'swiper';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-var slides = document.getElementsByClassName("mySlides");
+var slides = document.getElementsByClassName('mySlides');
 
 function switchSlides() {
   var slideCount = slides.length;
   var i = 0;
-  
+
   // Set first slide visible
-  slides[i].style.display = "block";
-  
+  slides[i].style.display = 'block';
+
   // Switch slide every 10 seconds
-  var switchInterval = setInterval(function() {
+  var switchInterval = setInterval(function () {
     i++;
     if (i < slideCount) {
-      slides[i-1].style.display = "none";
-      slides[i].style.display = "block";
+      slides[i - 1].style.display = 'none';
+      slides[i].style.display = 'block';
     } else {
       clearInterval(switchInterval);
 
       // Hide last slide (--> fade out image)
-      slides[i-1].style.display = "none";
-      
+      slides[i - 1].style.display = 'none';
+
       // Wait 10 seconds, then repeat switchSlides
       setTimeout(switchSlides, 5);
     }
@@ -35,10 +35,6 @@ function switchSlides() {
 }
 
 switchSlides();
-
-
-
-
 
 // init Swiper:
 const swiper = new Swiper('.swiper', {
@@ -59,13 +55,12 @@ const swiper = new Swiper('.swiper', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-
 });
-
 
 const loader = document.querySelector('.loader');
 const coordinates = [4.883751, 51.302504];
-const apiKey = 'pk.eyJ1IjoiYm9zYXMxIiwiYSI6ImNsZW1rOTQ4cTEwanUzcG44ZWg1Z2drYTkifQ.AWiAIOmLsTIvwi2_oTnX2w';
+const apiKey =
+  'pk.eyJ1IjoiYm9zYXMxIiwiYSI6ImNsZW1rOTQ4cTEwanUzcG44ZWg1Z2drYTkifQ.AWiAIOmLsTIvwi2_oTnX2w';
 const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${coordinates}.json?access_token=${apiKey}`;
 
 async function GetAdressFormCoordinates() {
@@ -74,7 +69,7 @@ async function GetAdressFormCoordinates() {
     const data = await response.json();
 
     console.log(data);
-    document.querySelector("#adress").textContent = data.features[0].place_name;
+    document.querySelector('#adress').textContent = data.features[0].place_name;
     loader.style.display = 'none'; // Hide loader
   } catch (error) {
     console.log(error);
